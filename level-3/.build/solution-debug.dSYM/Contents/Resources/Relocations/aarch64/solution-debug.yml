@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Volumes/MacOS-Ext/Development/ccc-hackathon/ccc-2025/level-3/.build/solution-debug'
+relocations:     []
+...

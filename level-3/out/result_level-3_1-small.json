@@ -1,0 +1,237 @@
+{
+  "cooldownSec": 4,
+  "evaluation": {
+    "cases": [
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 1,
+        "isCorrect": true,
+        "startLineNumber": 0
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 2,
+        "isCorrect": true,
+        "startLineNumber": 1
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 3,
+        "isCorrect": true,
+        "startLineNumber": 2
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 4,
+        "isCorrect": true,
+        "startLineNumber": 3
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 5,
+        "isCorrect": true,
+        "startLineNumber": 4
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 6,
+        "isCorrect": true,
+        "startLineNumber": 5
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 7,
+        "isCorrect": true,
+        "startLineNumber": 6
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 8,
+        "isCorrect": true,
+        "startLineNumber": 7
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 9,
+        "isCorrect": true,
+        "startLineNumber": 8
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 10,
+        "isCorrect": true,
+        "startLineNumber": 9
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 11,
+        "isCorrect": true,
+        "startLineNumber": 10
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 12,
+        "isCorrect": true,
+        "startLineNumber": 11
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 13,
+        "isCorrect": true,
+        "startLineNumber": 12
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 14,
+        "isCorrect": true,
+        "startLineNumber": 13
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 15,
+        "isCorrect": true,
+        "startLineNumber": 14
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 16,
+        "isCorrect": true,
+        "startLineNumber": 15
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 17,
+        "isCorrect": true,
+        "startLineNumber": 16
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 18,
+        "isCorrect": true,
+        "startLineNumber": 17
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 19,
+        "isCorrect": true,
+        "startLineNumber": 18
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 20,
+        "isCorrect": true,
+        "startLineNumber": 19
+      }
+    ],
+    "isCorrect": true
+  },
+  "score": {
+    "gameScore": {
+      "level": 4,
+      "timeMs": 1790539051905
+    },
+    "state": {
+      "level1": {
+        "kind": "levels",
+        "passedAt": 1790533636863,
+        "passedFiles": {
+          "1-small": 1790533636721,
+          "2-large": 1790533636863
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790533636721,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790533636863,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level2": {
+        "kind": "levels",
+        "passedAt": 1790534830154,
+        "passedFiles": {
+          "1-small": 1790534830009,
+          "2-large": 1790534830154
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790534830009,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790534830154,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level3": {
+        "kind": "levels",
+        "passedAt": 1790539051905,
+        "passedFiles": {
+          "1-small": 1790539051905,
+          "2-large": 1790538061954
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538061594,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790538061954,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538456126,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790539051905,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level4": {
+        "kind": "levels",
+        "passedFiles": {
+          "1-small": null,
+          "2-large": null
+        }
+      }
+    }
+  }
+}

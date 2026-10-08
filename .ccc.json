@@ -1,0 +1,27 @@
+{
+  "contest_name": "training-ccc-2025.11-classic-spaceship-58888-83b210b5",
+  "contest_slug": "training-ccc-2025-11-classic-spaceship-58888-83b210b5",
+  "game_slug": "ccc-2025.11-classic-spaceship",
+  "game_name": "Spaceship",
+  "game_base_url": "https://spaceship.codingcontest.org",
+  "game_token": "915416e7-6e3e-4d3e-b3d3-78288e44bb46",
+  "source_upload": null,
+  "source_files": [
+    "main.cpp"
+  ],
+  "cxx": [
+    "c++",
+    "-std=c++23",
+    "-O2",
+    "-Wall",
+    "-Wextra"
+  ],
+  "debug_flags": [
+    "-O0",
+    "-g",
+    "-fno-omit-frame-pointer",
+    "-fsanitize=undefined",
+    "-D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_DEBUG",
+    "-D_GLIBCXX_DEBUG"
+  ]
+}

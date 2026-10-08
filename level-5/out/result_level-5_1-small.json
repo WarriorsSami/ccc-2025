@@ -1,0 +1,407 @@
+{
+  "cooldownSec": 4,
+  "evaluation": {
+    "cases": [
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 2,
+        "isCorrect": true,
+        "startLineNumber": 0
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 5,
+        "isCorrect": true,
+        "startLineNumber": 3
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 8,
+        "isCorrect": true,
+        "startLineNumber": 6
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 11,
+        "isCorrect": true,
+        "startLineNumber": 9
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 14,
+        "isCorrect": true,
+        "startLineNumber": 12
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 17,
+        "isCorrect": true,
+        "startLineNumber": 15
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 20,
+        "isCorrect": true,
+        "startLineNumber": 18
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 23,
+        "isCorrect": true,
+        "startLineNumber": 21
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 26,
+        "isCorrect": true,
+        "startLineNumber": 24
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 29,
+        "isCorrect": true,
+        "startLineNumber": 27
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 32,
+        "isCorrect": true,
+        "startLineNumber": 30
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 35,
+        "isCorrect": true,
+        "startLineNumber": 33
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 38,
+        "isCorrect": true,
+        "startLineNumber": 36
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 41,
+        "isCorrect": true,
+        "startLineNumber": 39
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 44,
+        "isCorrect": true,
+        "startLineNumber": 42
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 47,
+        "isCorrect": true,
+        "startLineNumber": 45
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 50,
+        "isCorrect": true,
+        "startLineNumber": 48
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 53,
+        "isCorrect": true,
+        "startLineNumber": 51
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 56,
+        "isCorrect": true,
+        "startLineNumber": 54
+      },
+      {
+        "caseState": "CORRECT",
+        "endLineNumberExcl": 59,
+        "isCorrect": true,
+        "startLineNumber": 57
+      }
+    ],
+    "isCorrect": true
+  },
+  "score": {
+    "gameScore": {
+      "level": 5,
+      "timeMs": 1790705377085
+    },
+    "state": {
+      "level1": {
+        "kind": "levels",
+        "passedFiles": {
+          "1-small": null,
+          "2-large": null
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538519449,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538548817,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level3": {
+        "kind": "levels",
+        "passedFiles": {
+          "1-small": null,
+          "2-large": null
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538146520,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538352586,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1790538565052,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level4": {
+        "kind": "levels",
+        "passedAt": 1790705377085,
+        "passedFiles": {
+          "1-small": 1790705367925,
+          "2-large": 1790705377085
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790705367925,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1790705377085,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      },
+      "level5": {
+        "kind": "levels",
+        "passedFiles": {
+          "1-small": 1791305576970,
+          "2-large": null
+        },
+        "submissions": [
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791135063024,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791135063395,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791135130671,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791135141621,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "0-example",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791135174785,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791140074906,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791140075355,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false,
+              "error": "Pace lines must be even! 11"
+            },
+            "submittedAt": 1791140872233,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false,
+              "error": "Pace lines must be even! 11"
+            },
+            "submittedAt": 1791140872692,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791141305742,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791141306113,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "0-example",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791141351337,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791141357270,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791141372561,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145040764,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145041174,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "0-example",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145125035,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145134902,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145144873,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145478807,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "2-large",
+            "result": {
+              "correct": false
+            },
+            "submittedAt": 1791145479228,
+            "submittedBy": "WarriorsSami"
+          },
+          {
+            "fileId": "1-small",
+            "result": {
+              "correct": true
+            },
+            "submittedAt": 1791305576970,
+            "submittedBy": "WarriorsSami"
+          }
+        ]
+      }
+    }
+  }
+}

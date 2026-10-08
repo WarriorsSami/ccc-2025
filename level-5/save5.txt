@@ -1,0 +1,284 @@
+// Spaceship — level 5
+//
+// `ccc run`    builds this file, runs every input, diffs the example.
+// `ccc submit` does the same, then uploads the outputs.
+#include "ccc.hpp"
+
+constexpr int LEVEL = 5;
+
+// >>> example input
+//   3
+//   6,0 118
+//   3,0
+//   10,4 112
+//   7,4
+//   -7,-7 124
+//   -4,-4
+// <<< example input
+
+// One case is two lines (PDF, "Input"):
+//   "6,0 118"  space station X,Y, then the time limit
+//   "3,0"      the asteroid's X,Y
+struct TestCase {
+    i64 station_x, station_y;
+    mutable i64 time_limit;
+    i64 asteroid_x, asteroid_y;
+};
+
+struct Input {
+    std::vector<TestCase> cases;
+};
+
+// Reader: next<T>(), line_values<T>(), r >> x, fields(), record<S, Ts...>(),
+// set_separators(" ,") for comma-separated input; see Reader in ccc.hpp.
+Input parse(Reader& r) {
+    Input in;
+    r.set_separators(" \t,");  // "6,0 118" now reads as 6 0 118
+    const auto n = r.next<i64>();
+    for (i64 i = 0; i < n; ++i)
+        in.cases.push_back(r.as<TestCase, i64, i64, i64, i64, i64>());
+    return in;
+}
+
+// The same parse, line by line, if you'd rather mirror the two-line layout:
+//
+//   for (i64 i = 0; i < n; ++i) {
+//       TestCase c;
+//       r.fields() >> c.station_x >> c.station_y >> c.time_limit;  // "6,0 118"
+//       r.fields() >> c.asteroid_x >> c.asteroid_y;                 // "3,0"
+//       in.cases.push_back(c);
+//   }
+//
+// fields() splits on spaces, commas and semicolons regardless of
+// set_separators, so this variant works even without that call.
+
+struct Point {
+    i64 x, y;
+    bool is_target;
+};
+
+static std::vector<i64> generate_pace_one_dim(long long x) {
+    std::vector<i64> pace;
+    std::stack<int> ox;
+    int sgn = x > 0 ? 1 : -1;
+    x += 2*sgn;
+    int num = 0;
+    for (int idx = 0; idx < abs(x/2); ++idx) {
+        ox.push(sgn *num);
+        pace.emplace_back(ox.top());
+        if (num == 0)
+            num = 5;
+        else if (num == 1)
+            num = 1;
+        else
+            num--;
+    }
+
+    if (x % 2 !=0 ) {
+        pace.emplace_back(sgn * num);
+    }
+
+    while (!ox.empty()) {
+        pace.emplace_back(ox.top());
+        ox.pop();
+    }
+
+    return pace;
+}
+
+static std::pair<std::vector<i64>, std::vector<i64>> generate_pace_two_dim(Point p) {
+    return std::make_pair(generate_pace_one_dim(p.x), generate_pace_one_dim(p.y));
+}
+
+static i64 half(const Point& p) {
+    return p.y > 0 || (p.y == 0 && p.x > 0) ? 0 : 1;
+}
+
+static i64 cross(const Point& o, const Point& a, const Point& b) {
+    return (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x);
+}
+
+static i64 dist(const Point& a, const Point& b) {
+    return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+}
+
+static Point ORIGIN = {.x = 0, .y = 0};
+
+static bool comp_by_angle(const Point& a, const Point& b) {
+    if (half(a) != half(b))
+        return half(a) < half(b);
+
+    if (cross(ORIGIN, a, b) != 0)
+        return cross(ORIGIN, a, b) < 0;
+
+    return dist(ORIGIN, a) < dist(ORIGIN, b);
+}
+
+static bool comp_by_dist(Point& a, Point& b) {
+    return dist(ORIGIN, a) < dist(ORIGIN, b);
+}
+
+static void print_pace(std::vector<i64>& pace, std::ostream& out) {
+    for (const auto& p : pace) {
+        out << p << " ";
+    }
+    out << std::endl;
+}
+
+static void translate_to_origin(const Point& checkpoint, Point& other) {
+    other.x -= checkpoint.x;
+    other.y -= checkpoint.y;
+}
+
+static void solve(const Input& in, std::ostream& out) {
+    for (const auto& block : in.cases) {
+        // compute asteroid's safety area's corners and sort them by polar angles
+        Point ship_position = ORIGIN, station_position = {.x = block.station_x, .y = block.station_y, .is_target = true};
+        std::vector points_by_angle = {
+            station_position,
+            Point{.x = block.asteroid_x - 3, .y = block.asteroid_y + 3, .is_target = false},
+            Point{.x = block.asteroid_x + 3, .y = block.asteroid_y + 3, .is_target = false},
+            Point{.x = block.asteroid_x + 3, .y = block.asteroid_y - 3, .is_target = false},
+            Point{.x = block.asteroid_x - 3, .y = block.asteroid_y - 3, .is_target = false},
+        };
+        std::ranges::sort(points_by_angle, comp_by_angle);
+        // for (const auto& p : points_by_angle) {
+        //     out << p.x << " " << p.y << std::endl;
+        // }
+
+        std::vector points_by_dist = {
+            station_position,
+            Point{.x = block.asteroid_x - 3, .y = block.asteroid_y + 3, .is_target = false},
+            Point{.x = block.asteroid_x + 3, .y = block.asteroid_y + 3, .is_target = false},
+            Point{.x = block.asteroid_x + 3, .y = block.asteroid_y - 3, .is_target = false},
+            Point{.x = block.asteroid_x - 3, .y = block.asteroid_y - 3, .is_target = false},
+        };
+        std::ranges::sort(points_by_dist, comp_by_dist);
+
+        if (points_by_angle.front().is_target || points_by_angle.back().is_target || points_by_dist.front().is_target) {
+            auto [pace_x, pace_y] = generate_pace_two_dim(station_position);
+
+            print_pace(pace_x, out);
+            print_pace(pace_y, out);
+        }
+        // compute the convex hull starting from the ship's position, prolly going through some corners and ending at the station's position
+        else {
+            // cross < 0
+            std::deque rightwards_hull = {ship_position};
+            for (const auto& p : points_by_angle) {
+                while (rightwards_hull.size() >= 2 &&
+                    cross(rightwards_hull[rightwards_hull.size() - 2],
+                        rightwards_hull[rightwards_hull.size() - 1],
+                        p) > 0) {
+                    // out << rightwards_hull[rightwards_hull.size() - 2].x << " " << rightwards_hull[rightwards_hull.size() - 2].y << " "
+                    //     << rightwards_hull[rightwards_hull.size() - 1].x << " " << rightwards_hull[rightwards_hull.size() - 1].y << " "
+                    //     << p.x << " " << p.y << " "
+                    //     << cross(rightwards_hull[rightwards_hull.size() - 2],
+                    //     rightwards_hull[rightwards_hull.size() - 1],
+                    //     p)
+                    //     << std::endl;
+
+                    rightwards_hull.pop_back();
+                }
+                rightwards_hull.emplace_back(p);
+                // out << "pushed into r hull: " << p.x << " " << p.y << std::endl;
+
+                if (p.is_target) {
+                    break;
+                }
+            }
+
+            // cross > 0
+            std::ranges::reverse(points_by_angle);
+            std::deque leftwards_hull = {ship_position};
+            for (const auto& p : points_by_angle) {
+                while (leftwards_hull.size() >= 2 &&
+                    cross(leftwards_hull[leftwards_hull.size() - 2],
+                        leftwards_hull[leftwards_hull.size() - 1],
+                        p) < 0) {
+                    // out << leftwards_hull[leftwards_hull.size() - 2].x << " " << leftwards_hull[leftwards_hull.size() - 2].y << " "
+                    //     << leftwards_hull[leftwards_hull.size() - 1].x << " " << leftwards_hull[leftwards_hull.size() - 1].y << " "
+                    //     << p.x << " " << p.y << " "
+                    //     << cross(leftwards_hull[leftwards_hull.size() - 2],
+                    //     leftwards_hull[leftwards_hull.size() - 1],
+                    //     p)
+                    //     << std::endl;
+
+                    leftwards_hull.pop_back();
+                }
+                leftwards_hull.emplace_back(p);
+                // out << "pushed into l hull: " << p.x << " " << p.y << std::endl;
+
+                if (p.is_target) {
+                    break;
+                }
+            }
+
+            std::deque<Point> hull;
+            if (leftwards_hull.size() > rightwards_hull.size()) {
+                hull = rightwards_hull;
+            } else {
+                hull = leftwards_hull;
+            }
+
+            // out << "hull: " << std::endl;
+            // for (const auto& p : hull) {
+            //     out << p.x << " " << p.y << std::endl;
+            // }
+
+            std::vector<i64> pace_x, pace_y;
+
+            auto prev = hull.front();
+            hull.pop_front();
+            for (auto& p : hull) {
+                auto old_p = p;
+                // out << "prev: " << prev.x << ' ' << prev.y << std::endl;
+                translate_to_origin(prev, p);
+                prev = old_p;
+
+                auto [pace_x1, pace_y1] = generate_pace_two_dim(p);
+
+                // out << "point: " << p.x << ' ' << p.y << std::endl;
+                // for (auto& p : pace_x1) {
+                //     out << p << " ";
+                // }
+                // out << std::endl;
+                // for (auto& p : pace_y1) {
+                //     out << p << " ";
+                // }
+                // out << std::endl;
+
+                auto pace_x1_sum = std::accumulate(pace_x1.begin(), pace_x1.end(), 0LL);
+                auto pace_y1_sum = std::accumulate(pace_y1.begin(), pace_y1.end(), 0LL);
+
+                if (pace_x1_sum < pace_y1_sum) {
+                    block.time_limit -= pace_x1_sum;
+                    while (pace_x1_sum < pace_y1_sum && block.time_limit > 0) {
+                        pace_x1.push_back(0);
+                        pace_x1_sum++;
+                        block.time_limit--;
+                    }
+                } else if (pace_y1_sum < pace_x1_sum) {
+                    block.time_limit -= pace_y1_sum;
+                    while (pace_y1_sum < pace_x1_sum && block.time_limit > 0) {
+                        pace_y1.push_back(0);
+                        pace_y1_sum++;
+                        block.time_limit--;
+                    }
+                }
+
+                std::ranges::copy(pace_x1, std::back_inserter(pace_x));
+                std::ranges::copy(pace_y1, std::back_inserter(pace_y));
+            }
+
+            print_pace(pace_x, out);
+            print_pace(pace_y, out);
+        }
+
+        out << std::endl;
+    }
+}
+
+int main(int argc, char** argv) {
+    return ccc::run_level<Input>(LEVEL, argc, argv, parse, solve);
+}
